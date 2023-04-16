@@ -30,7 +30,7 @@ void sg90_attach(sg90_t *s)
         
         pwm_set_clkdiv(s->pwm_slice, sg90_CLK_DIV);
         pwm_set_wrap(s->pwm_slice, 65465);
-        pwm_set_chan_level(s->pwm_slice, s->pwm_channel, 3276.75f);
+        pwm_set_chan_level(s->pwm_slice, s->pwm_channel, 1780.64f);
 
         pwm_set_enabled(s->pwm_slice, 1);
         s->attached = 1;
@@ -63,7 +63,7 @@ void sg90_write(sg90_t *s, uint8_t angle)
         else if(angle < 0)
             angle = 0;
 
-        pwm_set_chan_level(s->pwm_slice, s->pwm_channel, 3276.75f*angle/180 + 3276.75f);
+        pwm_set_chan_level(s->pwm_slice, s->pwm_channel, 6075.16f*angle/180 + 1780.64f);
     }
 
     return;
